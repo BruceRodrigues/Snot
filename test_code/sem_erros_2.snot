@@ -19,7 +19,6 @@ class MyClass {
 			print("ELSE");
 		}
 	}
-	
 }
 
 void hello(tipo a) {
@@ -31,7 +30,7 @@ void hello(tipo a) {
 	if (3 < 5) {
 	   print("Expressao locona");
 	}
-	
+	return a;	
 }
 
 int main(){

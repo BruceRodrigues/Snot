@@ -53,7 +53,7 @@ public class MySnotListener extends SnotBaseListener {
 	@Override public void enterClass_declaration(SnotParser.Class_declarationContext ctx) { 
 		//Adicionando ID da classe na lista de tipos possiveis
 		if(types_list.contains(ctx.ID().toString()))
-			System.out.println("Erro-> Classe ja definida: " + ctx.ID());		
+			System.err.println("Erro-> Classe ja definida: " + ctx.ID());		
 		else
 			types_list.add(ctx.ID().toString()); 
 
@@ -98,7 +98,21 @@ public class MySnotListener extends SnotBaseListener {
 	@Override public void enterCommand(SnotParser.CommandContext ctx) { }
 	@Override public void exitCommand(SnotParser.CommandContext ctx) { }
 
-	@Override public void enterAttribution(SnotParser.AttributionContext ctx) { }
+	@Override public void enterAttribution(SnotParser.AttributionContext ctx) { 
+		//Verificar se nome da var nao eh existente
+		if(!id_list.contains(ctx.ID().getText()))
+			System.err.println("Erro:"+ctx.getStart().getLine()+":-> Variavel inexistente: " + ctx.ID().getText());
+
+		//Verificar tipos de retorno
+		if(ctx.call_procedure() != null) {
+			System.err.println("procedure");
+		} else if(ctx.call_method() != null) {
+			System.err.println("method");
+		} else if(ctx.expression() != null) {
+			System.err.println("expression");
+		} 
+	}
+
 	@Override public void exitAttribution(SnotParser.AttributionContext ctx) { }
 
 	@Override public void enterVar_declaration(SnotParser.Var_declarationContext ctx) { 
