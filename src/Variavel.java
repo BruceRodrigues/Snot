@@ -21,15 +21,11 @@ enum Type{
 
 public class Variavel {
 	
+	public String id;
+	public Type type;
 	
-	Type type;
-	
-	public Variavel(Type type) {
+	public Variavel(String id,Type type) {
+		this.id = id;
 		this.type = type;
 	}
-	
-	Type getValue() {
-		return this.type;
-	}
-
 }
