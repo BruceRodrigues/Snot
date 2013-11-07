@@ -131,11 +131,28 @@ public class MySnotListener extends SnotBaseListener {
 	}
 	@Override public void exitVar_declaration(SnotParser.Var_declarationContext ctx) { }
 
-	@Override public void enterParameter_list(SnotParser.Parameter_listContext ctx) { }
+	@Override public void enterParameter_list(SnotParser.Parameter_listContext ctx) { 
+		if (idList.contains(ctx.ID().getText())) {
+			//Error, this id is alredy used
+		}
+		if (!idList.constais(ctx.ID().getText() && !isPreDefinedType(ctx.type().getText())) {
+			//Error, this type was not defined
+		}
+	}
 	@Override public void exitParameter_list(SnotParser.Parameter_listContext ctx) { }
 
 	@Override public void enterEveryRule(ParserRuleContext ctx) { }
 	@Override public void exitEveryRule(ParserRuleContext ctx) { }
 	@Override public void visitTerminal(TerminalNode node) { }
 	@Override public void visitErrorNode(ErrorNode node) { }
+
+
+	private boolean isPreDefinedType(String typeName) {
+
+		if(typeName.equals("float") || typeName.equals("int") || typeName.equals("byte") || typeName.equals("string") ||
+			typeName.equals("boolean") ) {
+			return true;
+		}
+		return false;
+	}
 }
