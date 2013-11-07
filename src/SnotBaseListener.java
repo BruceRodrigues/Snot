@@ -16,19 +16,6 @@ public class SnotBaseListener implements SnotListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterExpression(@NotNull SnotParser.ExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitExpression(@NotNull SnotParser.ExpressionContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
 	@Override public void enterArgument_list(@NotNull SnotParser.Argument_listContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -36,6 +23,123 @@ public class SnotBaseListener implements SnotListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitArgument_list(@NotNull SnotParser.Argument_listContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterValueExpression(@NotNull SnotParser.ValueExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitValueExpression(@NotNull SnotParser.ValueExpressionContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterCompareExpression(@NotNull SnotParser.CompareExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitCompareExpression(@NotNull SnotParser.CompareExpressionContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterType(@NotNull SnotParser.TypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitType(@NotNull SnotParser.TypeContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterAndOrOrExpression(@NotNull SnotParser.AndOrOrExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitAndOrOrExpression(@NotNull SnotParser.AndOrOrExpressionContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterAddOrSubExpression(@NotNull SnotParser.AddOrSubExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitAddOrSubExpression(@NotNull SnotParser.AddOrSubExpressionContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterLoop(@NotNull SnotParser.LoopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitLoop(@NotNull SnotParser.LoopContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterCommand(@NotNull SnotParser.CommandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitCommand(@NotNull SnotParser.CommandContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterValue(@NotNull SnotParser.ValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitValue(@NotNull SnotParser.ValueContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterVar_declaration(@NotNull SnotParser.Var_declarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitVar_declaration(@NotNull SnotParser.Var_declarationContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -68,19 +172,6 @@ public class SnotBaseListener implements SnotListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterDeclaration(@NotNull SnotParser.DeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitDeclaration(@NotNull SnotParser.DeclarationContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
 	@Override public void enterClass_declaration(@NotNull SnotParser.Class_declarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -94,6 +185,45 @@ public class SnotBaseListener implements SnotListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
+	@Override public void enterDeclaration(@NotNull SnotParser.DeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitDeclaration(@NotNull SnotParser.DeclarationContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterMinusExpression(@NotNull SnotParser.MinusExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitMinusExpression(@NotNull SnotParser.MinusExpressionContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterNotExpression(@NotNull SnotParser.NotExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitNotExpression(@NotNull SnotParser.NotExpressionContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
 	@Override public void enterCall_procedure(@NotNull SnotParser.Call_procedureContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -101,19 +231,6 @@ public class SnotBaseListener implements SnotListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitCall_procedure(@NotNull SnotParser.Call_procedureContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterType(@NotNull SnotParser.TypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitType(@NotNull SnotParser.TypeContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -146,6 +263,19 @@ public class SnotBaseListener implements SnotListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
+	@Override public void enterMultDivExpression(@NotNull SnotParser.MultDivExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitMultDivExpression(@NotNull SnotParser.MultDivExpressionContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
 	@Override public void enterProgram(@NotNull SnotParser.ProgramContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -159,39 +289,26 @@ public class SnotBaseListener implements SnotListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterLoop(@NotNull SnotParser.LoopContext ctx) { }
+	@Override public void enterIdExpression(@NotNull SnotParser.IdExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitLoop(@NotNull SnotParser.LoopContext ctx) { }
+	@Override public void exitIdExpression(@NotNull SnotParser.IdExpressionContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterValue(@NotNull SnotParser.ValueContext ctx) { }
+	@Override public void enterParenExpression(@NotNull SnotParser.ParenExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitValue(@NotNull SnotParser.ValueContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterCommand(@NotNull SnotParser.CommandContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitCommand(@NotNull SnotParser.CommandContext ctx) { }
+	@Override public void exitParenExpression(@NotNull SnotParser.ParenExpressionContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -205,19 +322,6 @@ public class SnotBaseListener implements SnotListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitAttribution(@NotNull SnotParser.AttributionContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterVar_declaration(@NotNull SnotParser.Var_declarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitVar_declaration(@NotNull SnotParser.Var_declarationContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

@@ -62,16 +62,15 @@ selection
 
 //------------------------------------------------------------------------!!!!!!!!!!!!!
 expression 
-	: 
-        | '(' expression ')'
-        | 'not' expression
-        | '-' expression
-        | expression ('and' | 'or') expression
-        | expression ('>'|'>='|'<'|'<='|'=='|'!=') expression
-        | expression ('*' |'/') expression
-        | expression ('+'|'-') expression
-        | ID
-        | value;
+        : '(' expression ')'					# parenExpression
+        | 'not' expression					# notExpression
+        | '-' expression					# minusExpression
+        | expression ('and' | 'or') expression			# andOrOrExpression
+        | expression ('>'|'>='|'<'|'<='|'=='|'!=') expression	# compareExpression
+        | expression ('*' |'/') expression			# multDivExpression
+        | expression ('+'|'-') expression			# addOrSubExpression
+        | ID							# idExpression	
+        | value							# valueExpression;
 
 loop 
 	: 'while' expression '{' command* '}' 

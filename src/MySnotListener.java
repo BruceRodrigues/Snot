@@ -1,8 +1,10 @@
 import java.util.*;
+
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.TerminalNode;
 import org.antlr.v4.runtime.tree.ErrorNode;
+
 
 public class MySnotListener extends SnotBaseListener {
 	//Lista de tipos definidos
@@ -11,8 +13,12 @@ public class MySnotListener extends SnotBaseListener {
 	//Lista de IDs declarados
 	public ArrayList<String> id_list = new ArrayList<String>();
 
-	@Override public void enterExpression(SnotParser.ExpressionContext ctx) { }
-	@Override public void exitExpression(SnotParser.ExpressionContext ctx) { }
+	@Override
+	public void enterIdExpression(SnotParser.IdExpressionContext ctx) {
+		if(!id_list.contains(ctx.ID().getText())){
+			printError(ctx, "Variavel nao declarada: " + ctx.ID().getText());
+	    }
+	}
 
 	@Override public void enterArgument_list(SnotParser.Argument_listContext ctx) { }
 	@Override public void exitArgument_list(SnotParser.Argument_listContext ctx) { }
@@ -125,19 +131,14 @@ public class MySnotListener extends SnotBaseListener {
 		if(id_list.contains(ctx.ID().getText()))
 			System.err.println("Erro-> Id ja declarado: " + ctx.ID().getText());
 
-		
 		//Adiciona a funcao na lista de IDs, assim ela pode ser chamada
-		id_list.add(ctx.ID().toString());
+		printDebug("Declarando variavel " + ctx.ID().getText());
+		id_list.add(ctx.ID().getText());
 	}
 	@Override public void exitVar_declaration(SnotParser.Var_declarationContext ctx) { }
 
 	@Override public void enterParameter_list(SnotParser.Parameter_listContext ctx) { 
-		if (idList.contains(ctx.ID().getText())) {
-			//Error, this id is alredy used
-		}
-		if (!idList.constais(ctx.ID().getText() && !isPreDefinedType(ctx.type().getText())) {
-			//Error, this type was not defined
-		}
+		
 	}
 	@Override public void exitParameter_list(SnotParser.Parameter_listContext ctx) { }
 
@@ -146,6 +147,13 @@ public class MySnotListener extends SnotBaseListener {
 	@Override public void visitTerminal(TerminalNode node) { }
 	@Override public void visitErrorNode(ErrorNode node) { }
 
+	private void printError(ParserRuleContext ctx, String erro) {
+		System.err.println("Erro:"+ctx.getStart().getLine()+":-> "+ erro);
+	}
+	
+	private void printDebug(String s) {
+		System.err.println("DEBUG: " + s);
+	}
 
 	private boolean isPreDefinedType(String typeName) {
 
