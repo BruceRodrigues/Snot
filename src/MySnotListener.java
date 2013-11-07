@@ -10,21 +10,13 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 
 public class MySnotListener extends SnotBaseListener {
 	SymbolTable sym = new SymbolTable();
-	
-	//Lista de tipos definidos
-	public ArrayList<String> types_list = new ArrayList<String>();
-
-	//Lista de IDs declarados
-	public ArrayList<String> id_list = new ArrayList<String>();
-
+		
 	@Override
 	public void enterIdExpression(SnotParser.IdExpressionContext ctx) {
-		if(!id_list.contains(ctx.ID().getText())){
+		if(!sym.contains(ctx.ID().getText())){
 			printError(ctx, "Variavel nao declarada: " + ctx.ID().getText());
 	    }
 	}
-	
-	public ArrayList<Variavel> vars = new ArrayList<Variavel>();
 	
 	@Override public void enterArgument_list(SnotParser.Argument_listContext ctx) { }
 	@Override public void exitArgument_list(SnotParser.Argument_listContext ctx) { }
@@ -40,7 +32,7 @@ public class MySnotListener extends SnotBaseListener {
 		
 		//Verificar se nome ta funcao ja eh usado em algum lugar
 		if(sym.containsFunction(ctx.ID().getText()))
-			System.err.println("Erro-> Id ja declarado: " + ctx.ID().getText());
+			System.err.println("Erro-> Id de funcao ja declarado: " + ctx.ID().getText());
 
 		//Verificar tipo dos parametros
 		if(ctx.parameter_list() != null) {
@@ -75,7 +67,7 @@ public class MySnotListener extends SnotBaseListener {
 
 	@Override public void enterCall_procedure(SnotParser.Call_procedureContext ctx) { 
 		//Verifica se o id do procedimento existe
-		if(!id_list.contains(ctx.ID().getText()))
+		if(!sym.containsFunction(ctx.ID().getText()))
 			System.err.println("Erro-> Funcao nao existente: " + ctx.ID().getText());
 
 		//Verifica se o parametros passados existem, caso sejam ids.
@@ -113,7 +105,7 @@ public class MySnotListener extends SnotBaseListener {
 
 	@Override public void enterAttribution(SnotParser.AttributionContext ctx) { 
 		//Verificar se nome da var nao eh existente
-		if(!id_list.contains(ctx.ID().getText()))
+		if(!sym.contains(ctx.ID().getText()))
 			System.err.println("Erro:"+ctx.getStart().getLine()+":-> Variavel inexistente: " + ctx.ID().getText());
 
 		//Verificar tipos de retorno
