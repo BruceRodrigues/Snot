@@ -4,13 +4,13 @@ class Classe {
 	static int variavel1 = 0;
 	const string nome = "essa é uma variável do tipo string.";
 
-	Retorno funcaoComParametro(boolean parametro1, float parametro2) {
+	Retorno funcaoComParametro(Classe parametro1, float parametro2, Lola parametro3) {
 		Objeto obj;
 		/*Comentario*/
 		if( parametro1 == parametro2) {
-			obj.chamaFuncao(parametro1);
+			obj.chamaFuncao(variavel1);
 		} else {
-			obj.outraFuncao(parametro2);
+			obj.outraFuncao();
 		}
 	}
 
