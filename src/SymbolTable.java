@@ -6,14 +6,14 @@ public class SymbolTable {
 	
 	public ArrayList<Variavel> vars;
 	public ArrayList<String> types;
-	public ArrayList<String> functions;
+	public ArrayList<Function> functions;
 	public ArrayList<String> classes;
 	
 	
 	public SymbolTable() {
 		this.vars = new ArrayList<Variavel>();
 		this.types = new ArrayList<String>();
-		this.functions = new ArrayList<String>();
+		this.functions = new ArrayList<Function>();
 		this.classes = new ArrayList<String>();
 	}
 	
@@ -35,7 +35,19 @@ public class SymbolTable {
 	}
 	
 	public void addFunction(String function) {
+		this.functions.add(new Function(function));
+	}
+	
+	public void addFunction(Function function) {
 		this.functions.add(function);
+	}
+	
+	public Function getFunction(String name) {
+		for (Function f : this.functions) {
+			if(f.name.equals(name))
+				return f;
+		}
+		return null;
 	}
 	
 	public boolean containsFunction(String function) {
