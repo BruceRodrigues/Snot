@@ -1,0 +1,57 @@
+int variavel_global;
+int array_global[10];
+static boolean bool = true;
+
+/* comentario
+ * multi
+ * linhas
+ */
+
+class MyClass {
+	float atributo_float = 0.5;
+
+	float f = - 0.3;
+	
+	int metodo(boolean b) {
+		if (b) {
+			print("LOL");
+		} else {
+			print("ELSE");
+		}
+	}
+	
+}
+
+void hello(tipo a) {
+	a = (1 + 2) * 3 + variavel_global/5;
+	
+	boolean b;
+	b = (1 + 2 * 3 + variavel_global / 5) < 10;
+	
+	if (3 < 5) {
+	   print("Expressao locona");
+	}
+	
+}
+
+int main(){
+	int a = 3;
+	a = hello();
+	a = hello(a);
+	a = hello;
+	
+	MyClass object;
+	var = object.metodo(false);
+	
+	for int i in array_global {
+		print(i);
+	}
+	
+	boolean b = false;
+	while not b {
+		b = true;
+	}
+	
+	
+	
+}

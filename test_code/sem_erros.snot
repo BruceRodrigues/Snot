@@ -1,0 +1,28 @@
+/*Este codigo esta correto*/
+class Classe {
+
+	static int variavel1 = 0;
+	const string nome = "essa é uma variável do tipo string.";
+
+	Retorno funcaoComParametro(boolean parametro1, float parametro2) {
+		Objeto obj;
+		/*Comentario*/
+		if( parametro1 == parametro2) {
+			obj.chamaFuncao(parametro1);
+		} else {
+			obj.outraFuncao(parametro2);
+		}
+	}
+
+	void loop() {
+		
+		int array[3] = 0;
+		for a in array {
+			array[0] = variavel+1;
+			if ( 3 > 5) {
+				array[3] = funcao();	
+			}
+		}
+	}
+
+}
