@@ -94,19 +94,6 @@ public class SnotBaseListener implements SnotListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterLoop(@NotNull SnotParser.LoopContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitLoop(@NotNull SnotParser.LoopContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
 	@Override public void enterCommand(@NotNull SnotParser.CommandContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -127,6 +114,19 @@ public class SnotBaseListener implements SnotListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitValue(@NotNull SnotParser.ValueContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterLoop(@NotNull SnotParser.LoopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitLoop(@NotNull SnotParser.LoopContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

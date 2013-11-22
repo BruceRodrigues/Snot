@@ -27,7 +27,7 @@ public class SymbolTable {
 	
 	public boolean containsType(String type) {
 		for (Variavel v : this.vars) {
-			String t = v.type.getName();
+			String t = v.type;
 			if(t.equals(type))
 				return true;
 		}
@@ -64,9 +64,6 @@ public class SymbolTable {
 	
 	public void add(Variavel var) {
 		this.vars.add(var);
-		if(var.type == Type.DYNAMIC && !this.types.contains(var.type.getName())) {
-			this.types.add(var.type.getName());
-		}
 	}
 	
 	public void remove(int index) {
