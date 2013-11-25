@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 
 
@@ -57,7 +58,7 @@ public class SymbolTable {
 	}
 	
 	public boolean containsFunction(String function) {
-		return this.functions.contains(function);
+		return this.getFunction(function) != null;
 	}
 	
 	public boolean containsClass(String clazz) {

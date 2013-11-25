@@ -1,12 +1,14 @@
+
 import java.util.ArrayList;
 
 
 public class Function {
 	
-	ArrayList<String> parametersTypes;
-	String name;
+	public ArrayList<String> parametersTypes;
+	public String name;
 	
 	public Function(String name) {
+		this.parametersTypes = new ArrayList<String>();
 		this.name = name;
 	}
 	

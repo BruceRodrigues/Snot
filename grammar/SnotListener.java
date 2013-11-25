@@ -1,5 +1,4 @@
-
-// Generated from Snot.g4 by ANTLR 4.1
+// Generated from ../grammar/Snot.g4 by ANTLR 4.1
 import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -75,6 +74,17 @@ public interface SnotListener extends ParseTreeListener {
 	void exitAddOrSubExpression(@NotNull SnotParser.AddOrSubExpressionContext ctx);
 
 	/**
+	 * Enter a parse tree produced by {@link SnotParser#loop}.
+	 * @param ctx the parse tree
+	 */
+	void enterLoop(@NotNull SnotParser.LoopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SnotParser#loop}.
+	 * @param ctx the parse tree
+	 */
+	void exitLoop(@NotNull SnotParser.LoopContext ctx);
+
+	/**
 	 * Enter a parse tree produced by {@link SnotParser#command}.
 	 * @param ctx the parse tree
 	 */
@@ -95,17 +105,6 @@ public interface SnotListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitValue(@NotNull SnotParser.ValueContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link SnotParser#loop}.
-	 * @param ctx the parse tree
-	 */
-	void enterLoop(@NotNull SnotParser.LoopContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link SnotParser#loop}.
-	 * @param ctx the parse tree
-	 */
-	void exitLoop(@NotNull SnotParser.LoopContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link SnotParser#var_declaration}.

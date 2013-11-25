@@ -1,11 +1,11 @@
+
 import java.util.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
+
+
 
 
 public class MySnotListener extends SnotBaseListener {
@@ -51,20 +51,22 @@ public class MySnotListener extends SnotBaseListener {
 		}	
 
 		//Adiciona a funcao na lista de IDs, assim ela pode ser chamada
-		sym.addFunction(ctx.ID().toString());
+		sym.addFunction(f);
 		
 		
 		if(ctx.ID().toString().equals("main")) {
-			jasminCode+="\n .method public static main([Ljava/lang/String;)V \n"+
-					".limit stack 2";
+			jasminCode+="\n .method public static main([Ljava/lang/String;)V \n";
+		} else {
+			jasminCode += ".method public static " + Translator.translate(f) + "\n";
 		}
+		jasminCode += ".limit stack 10";
 
 	}
 	@Override public void exitFunction_declaration(SnotParser.Function_declarationContext ctx) {
-		if(ctx.ID().toString().equals("main")) {
+//		if(ctx.ID().toString().equals("main")) {
 			jasminCode+="return \n"+
 					".end method \n";
-		}
+//		} 
 	}
 
 	@Override public void enterDeclaration(SnotParser.DeclarationContext ctx) { }
@@ -117,6 +119,10 @@ public class MySnotListener extends SnotBaseListener {
 			jasminCode += "\n getstatic java/lang/System/out Ljava/io/PrintStream; \n" +
 					"ldc " + ctx.argument_list().argument().get(0).value().STRING_LITERAL() + "\n" +
 					"invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V \n";
+		} else {
+//			jasminCode += "aload 0 \n";
+			//TODO
+			jasminCode += "invokestatic " + "Program."+Translator.translate(f)+"\n";
 		}
 	}
 	@Override public void exitCall_procedure(SnotParser.Call_procedureContext ctx) { }
@@ -124,25 +130,30 @@ public class MySnotListener extends SnotBaseListener {
 	@Override public void enterType(SnotParser.TypeContext ctx) { }
 	@Override public void exitType(SnotParser.TypeContext ctx) { }
 
-	@Override public void enterSelection(SnotParser.SelectionContext ctx) { }
+	@Override public void enterSelection(SnotParser.SelectionContext ctx) { 
+		
+//		SnotParser.ValueExpressionContext c = (SnotParser.ValueExpressionContext)ctx.expression();
+//		jasminCode += "ldc " + c.value().
+		
+	}
 	@Override public void exitSelection(SnotParser.SelectionContext ctx) { }
 
 	@Override public void enterCall_method(SnotParser.Call_methodContext ctx) { }
 	@Override public void exitCall_method(SnotParser.Call_methodContext ctx) { }
 
 	@Override public void enterProgram(SnotParser.ProgramContext ctx) {
-		jasminCode += ".class public Hello \n"+
+		jasminCode += ".class public Program \n"+
 					".super java/lang/Object \n"+
 					".method public <init>()V \n"+
 					"aload_0 ; push this\n" +
 					"invokespecial java/lang/Object/<init>()V ; call super \n" +
 					"return \n"+
-					".end method";
+					".end method \n";
 		
 	}
+	
 	@Override public void exitProgram(SnotParser.ProgramContext ctx) { }
 
-	//Nao precisa implementar
 	@Override public void enterLoop(SnotParser.LoopContext ctx) { }
 	@Override public void exitLoop(SnotParser.LoopContext ctx) { }
 

@@ -3,6 +3,12 @@
  * linhas
  */
 
+void p() {
+	print("faf");
+	p();
+}
+
 int main() {
 	print("Hello");
+	p();
 }

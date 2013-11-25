@@ -1,3 +1,6 @@
+
+import java.io.InputStream;
+
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
  
@@ -16,6 +19,9 @@ public class SnotMain
     MySnotListener m = new MySnotListener();
     walker.walk(m, tree);
     System.out.println(m.jasminCode);
+    
+    
+    Process proc = Runtime.getRuntime().exec("java -jar A.jar");
  
     //System.out.println(tree.toStringTree(p));
     //p.setBuildParseTree(true);
