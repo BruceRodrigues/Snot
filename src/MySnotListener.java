@@ -10,6 +10,8 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 
 public class MySnotListener extends SnotBaseListener {
 	SymbolTable sym = new SymbolTable();
+	
+	String jasminCode = "";
 		
 	@Override
 	public void enterIdExpression(SnotParser.IdExpressionContext ctx) {
@@ -50,9 +52,20 @@ public class MySnotListener extends SnotBaseListener {
 
 		//Adiciona a funcao na lista de IDs, assim ela pode ser chamada
 		sym.addFunction(ctx.ID().toString());
+		
+		
+		if(ctx.ID().toString().equals("main")) {
+			jasminCode+="\n .method public static main([Ljava/lang/String;)V \n"+
+					".limit stack 2";
+		}
 
 	}
-	@Override public void exitFunction_declaration(SnotParser.Function_declarationContext ctx) { }
+	@Override public void exitFunction_declaration(SnotParser.Function_declarationContext ctx) {
+		if(ctx.ID().toString().equals("main")) {
+			jasminCode+="return \n"+
+					".end method \n";
+		}
+	}
 
 	@Override public void enterDeclaration(SnotParser.DeclarationContext ctx) { }
 	@Override public void exitDeclaration(SnotParser.DeclarationContext ctx) { }
@@ -99,6 +112,12 @@ public class MySnotListener extends SnotBaseListener {
 		if(!f.checkParameters(tiposRecebidos)) {
 			printError(ctx, "Funcao " + ctx.ID().getText() + " esperava receber " + f.parametersTypes + " mas recebeu " + tiposRecebidos);
 		}
+		
+		if(ctx.ID().getText().equals(sym.getFunction("print").name)) {
+			jasminCode += "\n getstatic java/lang/System/out Ljava/io/PrintStream; \n" +
+					"ldc " + ctx.argument_list().argument().get(0).value().STRING_LITERAL() + "\n" +
+					"invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V \n";
+		}
 	}
 	@Override public void exitCall_procedure(SnotParser.Call_procedureContext ctx) { }
 
@@ -111,7 +130,16 @@ public class MySnotListener extends SnotBaseListener {
 	@Override public void enterCall_method(SnotParser.Call_methodContext ctx) { }
 	@Override public void exitCall_method(SnotParser.Call_methodContext ctx) { }
 
-	@Override public void enterProgram(SnotParser.ProgramContext ctx) { }
+	@Override public void enterProgram(SnotParser.ProgramContext ctx) {
+		jasminCode += ".class public Hello \n"+
+					".super java/lang/Object \n"+
+					".method public <init>()V \n"+
+					"aload_0 ; push this\n" +
+					"invokespecial java/lang/Object/<init>()V ; call super \n" +
+					"return \n"+
+					".end method";
+		
+	}
 	@Override public void exitProgram(SnotParser.ProgramContext ctx) { }
 
 	//Nao precisa implementar

@@ -1,0 +1,8 @@
+/* comentario
+ * multi
+ * linhas
+ */
+
+int main() {
+	print("Hello");
+}

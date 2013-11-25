@@ -13,8 +13,9 @@ public class SnotMain
     ParseTree tree = p.program();
     
     ParseTreeWalker walker = new ParseTreeWalker();
-    walker.walk(new MySnotListener(), tree);
-    System.out.println();
+    MySnotListener m = new MySnotListener();
+    walker.walk(m, tree);
+    System.out.println(m.jasminCode);
  
     //System.out.println(tree.toStringTree(p));
     //p.setBuildParseTree(true);

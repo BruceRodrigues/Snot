@@ -14,6 +14,12 @@ public class SymbolTable {
 		this.vars = new ArrayList<Variavel>();
 		this.types = new ArrayList<String>();
 		this.functions = new ArrayList<Function>();
+		
+		Function print = new Function("print");
+		print.addParameterType("string");
+		this.functions.add(print);
+		
+		
 		this.classes = new ArrayList<String>();
 	}
 	
